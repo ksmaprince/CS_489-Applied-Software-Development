@@ -38,6 +38,8 @@ public class App {
             }
         });
 
+        employeewWhoQualifiedPension.sort(Comparator.comparing(Employee::getEmploymentDate));
+
         return new Gson().toJson(employeewWhoQualifiedPension);
     }
 
@@ -48,8 +50,9 @@ public class App {
         employees.add(new Employee(3L, "Carly", "Agar", "2014-05-16", 842000.75, new PensionPlan("SM2307", "2019-11-04", 1555.50)));
         employees.add(new Employee(4L, "Wesley", "Schneider", "2018-11-02", 74500.00, new PensionPlan(null, null, null)));
 
-
-        //System.out.println(employeesJSON(employees));
+        System.out.println("List of All Employees: ");
+        System.out.println(employeesJSON(employees));
+        System.out.println("Monthly Upcoming Enrollees: ");
         System.out.println(enrolleeReport(employees));
 
     }
