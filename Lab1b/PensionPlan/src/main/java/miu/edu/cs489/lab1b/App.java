@@ -4,10 +4,11 @@ import com.google.gson.Gson;
 import miu.edu.cs489.lab1b.model.Employee;
 import miu.edu.cs489.lab1b.model.PensionPlan;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.YearMonth;
+import java.util.*;
 
 public class App {
     //Feature 1
@@ -19,8 +20,25 @@ public class App {
         return new Gson().toJson(employees);
     }
 
-    private static String enrollmentReport(List<Employee> employees){
-        return "";
+    private static String enrolleeReport(List<Employee> employees){
+        List<Employee> employeewWhoQualifiedPension = new ArrayList<>();
+
+        employees.forEach(employee -> {
+            String employmentDate = employee.getEmploymentDate();
+            LocalDate empdate = LocalDate.parse(employmentDate);
+
+            LocalDate today = LocalDate.now();
+            YearMonth nextMonth = YearMonth.from(today).plusMonths(1);
+            LocalDate endOfMonth = nextMonth.atEndOfMonth();
+
+            Period period = Period.between(empdate,endOfMonth);
+
+            if (period.getYears() >= 5){
+                employeewWhoQualifiedPension.add(employee);
+            }
+        });
+
+        return new Gson().toJson(employeewWhoQualifiedPension);
     }
 
     public static void main(String[] args) {
@@ -31,7 +49,8 @@ public class App {
         employees.add(new Employee(4L, "Wesley", "Schneider", "2018-11-02", 74500.00, new PensionPlan(null, null, null)));
 
 
-        System.out.println(employeesJSON(employees));
+        //System.out.println(employeesJSON(employees));
+        System.out.println(enrolleeReport(employees));
 
     }
 }
