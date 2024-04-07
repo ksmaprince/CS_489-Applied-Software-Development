@@ -1,19 +1,6 @@
-CREATE TABLE `appointment` (
-  `appointment_id` int NOT NULL,
-  `appointment_date` varchar(45) DEFAULT NULL,
-  `appointment_time` varchar(45) DEFAULT NULL,
-  `status` varchar(45) DEFAULT NULL,
-  `patient_id` int DEFAULT NULL,
-  `surgery_id` int DEFAULT NULL,
-  `dentist_id` int DEFAULT NULL,
-  PRIMARY KEY (`appointment_id`),
-  KEY `dentist_id_idx` (`dentist_id`),
-  KEY `patient_id_idx` (`patient_id`),
-  KEY `surgery_id_idx` (`surgery_id`),
-  CONSTRAINT `dentist_id` FOREIGN KEY (`dentist_id`) REFERENCES `dentist` (`dentist_id`),
-  CONSTRAINT `patient_id` FOREIGN KEY (`patient_id`) REFERENCES `patient` (`patient_id`),
-  CONSTRAINT `surgery_id` FOREIGN KEY (`surgery_id`) REFERENCES `surgery` (`surgery_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE DATABASE ADS_DB;
+
+USE ADS_DB;
 
 CREATE TABLE `dentist` (
   `dentist_id` int NOT NULL,
@@ -43,12 +30,31 @@ CREATE TABLE `surgery` (
   PRIMARY KEY (`surgery_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+CREATE TABLE `appointment` (
+  `appointment_id` int NOT NULL,
+  `appointment_date` varchar(45) DEFAULT NULL,
+  `appointment_time` varchar(45) DEFAULT NULL,
+  `status` varchar(45) DEFAULT NULL,
+  `patient_id` int DEFAULT NULL,
+  `surgery_id` int DEFAULT NULL,
+  `dentist_id` int DEFAULT NULL,
+  PRIMARY KEY (`appointment_id`),
+  KEY `dentist_id_idx` (`dentist_id`),
+  KEY `patient_id_idx` (`patient_id`),
+  KEY `surgery_id_idx` (`surgery_id`),
+  CONSTRAINT `dentist_id` FOREIGN KEY (`dentist_id`) REFERENCES `dentist` (`dentist_id`),
+  CONSTRAINT `patient_id` FOREIGN KEY (`patient_id`) REFERENCES `patient` (`patient_id`),
+  CONSTRAINT `surgery_id` FOREIGN KEY (`surgery_id`) REFERENCES `surgery` (`surgery_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 INSERT INTO dentist VALUES 
 (1, 'John', 'Smith', '123-456-7890', 'john.smith@example.com', 'General'),
 (2, 'Emily', 'Johnson', '987-654-3210', 'emily.j@example.com', 'Orthodontics'),
 (3, 'Michael', 'Williams', '555-123-4567', 'm.williams@example.com', 'Endodontics'),
 (4, 'Sarah', 'Brown', '999-888-7777', 'sbrown@example.com', 'Periodontics'),
 (5, 'David', 'Jones', '111-222-3333', 'dj@example.com', 'Oral Surgery');
+
+SELECT * FROM dentist;
 
 INSERT INTO patient VALUES 
 (1, 'Alice', 'Miller', '111-222-3333', 'alice.m@example.com', '123 Main St, City A', '1985-05-15'),
@@ -57,6 +63,7 @@ INSERT INTO patient VALUES
 (4, 'Dan', 'Thompson', '222-333-4444', 'dan.t@example.com', '321 Pine St, City D', '2000-12-30'),
 (5, 'Eve', 'Roberts', '666-777-8888', 'eve.r@example.com', '654 Maple St, City E', '1995-08-25');
 
+SELECT * FROM patient;
 
 INSERT INTO surgery VALUES 
 (1, 'City A Dental', '123 Main St, City A', '111-222-3333'),
@@ -65,12 +72,16 @@ INSERT INTO surgery VALUES
 (4, 'Pine Dental', '321 Pine St, City D', '222-333-4444'),
 (5, 'Maple Dental', '654 Maple St, City E', '666-777-8888');
 
+SELECT * FROM surgery;
+
 INSERT INTO appointment VALUES 
 (1, '2024-04-10', '10:00:00', 'confirmed', 1, 1, 1),
 (2, '2024-04-11', '11:00:00', 'pending', 2, 2, 2),
 (3, '2024-04-12', '12:00:00', 'pending', 3, 3, 3),
 (4, '2024-04-13', '13:00:00', 'confirmed', 4, 4, 4),
 (5, '2024-04-14', '14:00:00', 'pending', 5, 5, 5);
+
+SELECT * FROM appointment;
 
 -- Display the list of ALL Dentists registered in the system, sorted in ascending order of their lastNames:
 SELECT * FROM Dentist ORDER BY last_name ASC;
