@@ -22,7 +22,7 @@ public class Address {
     @Column(length = 16)
     private String zip;
 
-    @OneToOne(mappedBy = "mailingAddress")
+    @OneToOne(mappedBy = "address")
     private Patient patient;
 
     @OneToOne(mappedBy = "address")

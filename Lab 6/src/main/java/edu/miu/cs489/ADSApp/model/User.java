@@ -16,10 +16,16 @@ public class User {
     private Integer userId;
     private String username;
     private String password;
-
     private String name;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "role_id", unique = true, nullable = true)
     private Role role;
+
+    public User(Integer userId, String username, String password, String name) {
+        this.userId = userId;
+        this.username = username;
+        this.password = password;
+        this.name = name;
+    }
 }

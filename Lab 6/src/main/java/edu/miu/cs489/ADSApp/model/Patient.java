@@ -32,7 +32,7 @@ public class Patient {
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "address_id", unique = true, nullable = true)
-    private Address mailingAddress;
+    private Address address;
 
     @Column(length = 25)
     private String dob;
@@ -41,13 +41,13 @@ public class Patient {
     private List<Appointment> appointments;
 
 
-    public Patient(Integer patientId, String firstName, String lastName, String contactPhoneNo, String email, Address mailingAddress, String dob) {
+    public Patient(Integer patientId, String firstName, String lastName, String contactPhoneNo, String email, Address address, String dob) {
         this.patientId = patientId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.contactPhoneNo = contactPhoneNo;
         this.email = email;
-        this.mailingAddress = mailingAddress;
+        this.address = address;
         this.dob = dob;
     }
 
@@ -59,7 +59,7 @@ public class Patient {
                 ", lastName='" + lastName + '\'' +
                 ", contactPhoneNo='" + contactPhoneNo + '\'' +
                 ", email='" + email + '\'' +
-                ", mailingAddress=" + mailingAddress +
+                ", mailingAddress=" + address +
                 ", dob='" + dob + '\'' +
                 '}';
     }

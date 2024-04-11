@@ -27,5 +27,10 @@ public class Surgery {
     @OneToMany(mappedBy = "surgery")
     private List<Appointment> appointments;
 
-
+    public Surgery(Integer surgeryId, String name, Address address, String telephoneNo) {
+        this.surgeryId = surgeryId;
+        this.name = name;
+        this.address = address;
+        this.telephoneNo = telephoneNo;
+    }
 }

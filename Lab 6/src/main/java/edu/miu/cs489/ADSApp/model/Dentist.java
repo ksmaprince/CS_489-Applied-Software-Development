@@ -31,4 +31,12 @@ public class Dentist {
     @OneToMany(mappedBy = "dentist")
     private List<Appointment> appointments;
 
+    public Dentist(Integer dentistId, String firstName, String lastName, String contactPhoneNumber, String email, String specialization) {
+        this.dentistId = dentistId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.contactPhoneNumber = contactPhoneNumber;
+        this.email = email;
+        this.specialization = specialization;
+    }
 }

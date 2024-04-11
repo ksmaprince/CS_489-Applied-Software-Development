@@ -19,4 +19,9 @@ public class Role {
 
     @OneToOne(mappedBy = "role")
     private User user;
+
+    public Role(Integer roleId, String name) {
+        this.roleId = roleId;
+        this.name = name;
+    }
 }
