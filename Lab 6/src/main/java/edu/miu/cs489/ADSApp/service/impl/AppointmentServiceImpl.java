@@ -1,6 +1,7 @@
 package edu.miu.cs489.ADSApp.service.impl;
 
 import edu.miu.cs489.ADSApp.model.Appointment;
+import edu.miu.cs489.ADSApp.model.AppointmentResult;
 import edu.miu.cs489.ADSApp.repository.AppointmentRepository;
 import edu.miu.cs489.ADSApp.service.AppointmentService;
 import org.springframework.stereotype.Service;
@@ -38,4 +39,5 @@ public class AppointmentServiceImpl implements AppointmentService {
     public void deleteAppointmentById(Integer appointmentId) {
         appointmentRepository.deleteById(appointmentId);
     }
+
 }

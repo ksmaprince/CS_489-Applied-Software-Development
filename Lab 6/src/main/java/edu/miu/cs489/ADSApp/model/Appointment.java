@@ -30,10 +30,4 @@ public class Appointment {
     @JoinColumn(name = "dentist_id", unique = false)
     private Dentist dentist;
 
-    public Appointment(Integer appointmentId, String appointmentDate, String appointmentTime, String status) {
-        this.appointmentId = appointmentId;
-        this.appointmentDate = appointmentDate;
-        this.appointmentTime = appointmentTime;
-        this.status = status;
-    }
 }

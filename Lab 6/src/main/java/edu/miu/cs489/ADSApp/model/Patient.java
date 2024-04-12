@@ -14,7 +14,6 @@ import java.util.List;
 @Entity
 @Table(name = "patient")
 public class Patient {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer patientId;
@@ -29,9 +28,8 @@ public class Patient {
     @Column(length = 45)
     private String email;
 
-
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "address_id", unique = true, nullable = true)
+    @JoinColumn(name = "addressId", unique = false, nullable = false)
     private Address address;
 
     @Column(length = 25)
