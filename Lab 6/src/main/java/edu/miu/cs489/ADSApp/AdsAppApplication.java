@@ -8,6 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.ArrayList;
+import java.util.Formatter;
 import java.util.List;
 
 @SpringBootApplication
@@ -47,6 +48,7 @@ public class AdsAppApplication implements CommandLineRunner {
 //        addAppointments();
 
         //Show All Appointment with Custom query;
+        showAppointment();
     }
 
     //TEST ADDRESS CRUD(){
@@ -62,21 +64,32 @@ public class AdsAppApplication implements CommandLineRunner {
         System.out.println(getAllAddress());
     }
 
-//    private void showAppointment(){
-//        List<AppointmentResult> appointmentResults = new ArrayList<>();
-//        List<Appointment> appointments  = getAllAppointment();
-//        for (Appointment appointment : appointments) {
-//            Dentist d = getDentistById(appointment.getDentistId());
-//            String dentistName = d.getFirstName()+" "+d.getLastName();
-//            Patient p = getPatientById(appointment.getPatientId);
-//             Integer patNo;
-//             String patName;
-//             String appointmentDateTime;
-//             String surgeryNo;
-//
-//            appointmentResults.add(AppointmentResult())
-//        }
-//    }
+    private void showAppointment() {
+        List<AppointmentResult> appointmentResults = new ArrayList<>();
+        List<Appointment> appointments = getAllAppointment();
+
+        appointments.forEach(appointment -> {
+            System.out.println(appointment.getDentist().getDentistId());
+            Dentist d = getDentistById(appointment.getDentist().getDentistId());
+            String dentistName = d.getFirstName() + " " + d.getLastName();
+            Patient p = getPatientById(appointment.getPatient().getPatientId());
+            Integer patNo = p.getPatientId();
+            String patName = p.getFirstName() + " " + p.getLastName();
+            String appointmentDateTime = appointment.getAppointmentDate() + " " + appointment.getAppointmentTime();
+            Integer surgeryNo = appointment.getSurgery().getSurgeryId();
+            appointmentResults.add(new AppointmentResult(dentistName, patNo, patName, appointmentDateTime, surgeryNo));
+        });
+
+
+        System.out.println("Appointment with Full Information");
+
+        Formatter fmt = new Formatter();
+        fmt.format("%15s %15s %15s %15s %15s\n", "dentistName", "patNo", "patName", "appointmentDateTime", "surgeryNo");
+        appointmentResults.forEach(a -> {
+            fmt.format("%15s %15s %15s %15s %15s\n", a.getDentistName(), a.getPatNo(), a.getPatName(), a.getAppointmentDateTime(), a.getSurgeryNo());
+        });
+        System.out.println(fmt);
+    }
 
     //TEST PATIENT CRUD
     private void addPatients() {

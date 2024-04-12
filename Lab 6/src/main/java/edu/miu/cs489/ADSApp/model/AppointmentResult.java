@@ -12,7 +12,15 @@ public class AppointmentResult {
     private Integer patNo;
     private String patName;
     private String appointmentDateTime;
-    private String surgeryNo;
+    private Integer surgeryNo;
 
 
+    @Override
+    public String toString() {
+        return  dentistName +
+                "\t\t\t" + patNo +
+                "\t\t\t" + patName +
+                "\t\t\t" + appointmentDateTime +
+                "\t\t\t" + surgeryNo;
+    }
 }
