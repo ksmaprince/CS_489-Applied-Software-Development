@@ -84,18 +84,20 @@ public class PatientServiceImpl implements PatientService {
             patient.setContactPhoneNo(editPatient.getContactPhoneNo());
             patient.setEmail(editPatient.getEmail());
             patient.setDob(editPatient.getDob());
-            if (editPatient.getAddress() != null) {
+            if (patient.getAddress() != null) {
                 Address address = patient.getAddress();
                 address.setStreet(editPatient.getAddress().getStreet());
                 address.setCity(editPatient.getAddress().getCity());
                 address.setState(editPatient.getAddress().getState());
                 address.setZip(editPatient.getAddress().getZip());
+                patient.setAddress(address);
             } else {
                 Address newAddress = new Address();
                 newAddress.setStreet(editPatient.getAddress().getStreet());
                 newAddress.setCity(editPatient.getAddress().getCity());
                 newAddress.setState(editPatient.getAddress().getState());
                 newAddress.setZip(editPatient.getAddress().getZip());
+                newAddress.setPatient(patient);
                 patient.setAddress(newAddress);
             }
             Patient p = patientRepository.save(patient);
