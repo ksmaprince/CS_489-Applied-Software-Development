@@ -15,7 +15,11 @@ public interface PatientService {
 
     PatientResponse getPatientById(Integer patientId) throws PatientNotFoundException;
 
-    PatientResponse updatePatient(Patient patient);
+    PatientResponse updatePatient(Integer patientId, Patient editPatient);
 
-    void deletePatientById(Integer patientId);
+    String deletePatientById(Integer patientId);
+
+    void deletePatientByAddressId(Integer patientId);
+
+    List<PatientResponse> searchPatient(String searchString);
 }
