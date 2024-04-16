@@ -1,7 +1,11 @@
 DATA IN ROLE TABLE
+
 INSERT INTO roles VALUE(1, "ADMIN_ROLE");
+
 INSERT INTO roles VALUE(2, "MANAGER_ROLE");
+
 INSERT INTO roles VALUE(3, "USER_ROLE");
+
 
 
 1. Create User with role IDs.
