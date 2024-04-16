@@ -1,29 +1,18 @@
-1. /patient/list
-
-![Screenshot 2024-04-13 at 7.55.17 PM.png](screen%2FScreenshot%202024-04-13%20at%207.55.17%E2%80%AFPM.png)
-
-
-2. /patient/get/1
-
-![Screenshot 2024-04-13 at 7.56.48 PM.png](screen%2FScreenshot%202024-04-13%20at%207.56.48%E2%80%AFPM.png)
+DATA IN ROLE TABLE
+INSERT INTO roles VALUE(1, "ADMIN_ROLE");
+INSERT INTO roles VALUE(2, "MANAGER_ROLE");
+INSERT INTO roles VALUE(3, "USER_ROLE");
 
 
-3. /patient/register
-![Screenshot 2024-04-13 at 7.58.13 PM.png](screen%2FScreenshot%202024-04-13%20at%207.58.13%E2%80%AFPM.png)
+1. Create User with role IDs.
+![Screenshot 2024-04-16 at 2.49.32 PM.png](screen%2FScreenshot%202024-04-16%20at%202.49.32%E2%80%AFPM.png)
 
 
-4. /patient/update/1
-![Screenshot 2024-04-13 at 7.58.51 PM.png](screen%2FScreenshot%202024-04-13%20at%207.58.51%E2%80%AFPM.png)
+2. Login
+![Screenshot 2024-04-16 at 2.49.56 PM.png](screen%2FScreenshot%202024-04-16%20at%202.49.56%E2%80%AFPM.png)
 
 
-5. /patient/delete/12
-![Screenshot 2024-04-13 at 8.03.49 PM.png](screen%2FScreenshot%202024-04-13%20at%208.03.49%E2%80%AFPM.png)
+3. API Call with JWT Token
+![Screenshot 2024-04-16 at 2.50.25 PM.png](screen%2FScreenshot%202024-04-16%20at%202.50.25%E2%80%AFPM.png)
 
 
-6. /patient/search
-
-![Screenshot 2024-04-13 at 8.04.43 PM.png](screen%2FScreenshot%202024-04-13%20at%208.04.43%E2%80%AFPM.png)
-
-
-7. /address/list
-![Screenshot 2024-04-13 at 8.05.17 PM.png](screen%2FScreenshot%202024-04-13%20at%208.05.17%E2%80%AFPM.png)
