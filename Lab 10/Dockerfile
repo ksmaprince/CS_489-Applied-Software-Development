@@ -7,4 +7,5 @@ COPY target/adssysem-0.0.1-SNAPSHOT.jar /app
 # Set the working directory for where next commands will execute at
 WORKDIR /app
 # Define the command to run the app when the contain is started
-CMD ["java", "-jar", "./adssysem-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-Dspring.profiles.active=dockerembbed,oauth-security", "-jar", "./adssysem-0.0.1-SNAPSHOT.jar"]
+
