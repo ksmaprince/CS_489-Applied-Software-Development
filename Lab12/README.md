@@ -22,6 +22,10 @@ https://advantis-dental-surgeries.azurewebsites.net/adsweb/api/v1/auth/register
 
 ## **Login**
 
+
+https://advantis-dental-surgeries.azurewebsites.net/adsweb/api/v1/auth/login
+
+
 ![Screenshot 2024-04-26 at 3.02.30 PM.png](screen%2FScreenshot%202024-04-26%20at%203.02.30%E2%80%AFPM.png)
 
 
